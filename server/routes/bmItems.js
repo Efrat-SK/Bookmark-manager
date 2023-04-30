@@ -11,16 +11,16 @@ router.post('/api/item', async (req, res) => {
         const saveItem = await newItem.save()
         res.status(200).json(saveItem)
     } catch (err) {
-        res.json(err)
+       req.json(err)
     }
 })
 
-router.get('/api/items', async (res) => {
+router.get('/api/items', async (req, res) => {
     try {
         const allBmItem = await bmItemsModel.find({})
         res.status(200).json(allBmItem)
     } catch (err) {
-        res.json(err)
+        req.json(err)
     }
 })
 
